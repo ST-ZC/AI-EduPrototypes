@@ -18,6 +18,8 @@ if "messages" not in st.session_state.keys(): # Initialize the chat messages his
         {"role": "assistant", "content": "　社長に質問してください。若手の質問とベテランの回答について質問してください。"}
     ]
 
+## とりあえずコメントしてみるよ〜〜〜
+
 @st.cache_resource(show_spinner=False)
 def load_data():
     with st.spinner(text="Loading and indexing the Streamlit docs – hang tight! This should take 1-2 minutes."):
