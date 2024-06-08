@@ -11,9 +11,8 @@ st.set_page_config(page_title="Chat with the Streamlit docs, powered by LlamaInd
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [
         {"role": "assistant", "content": "こんにちは！動物の勝ち負けゲームの専門家です。何か質問があればどうぞ！"},
-        {"role": "assistant", "content": "象、ライオン、虎、豹、狼、犬、猫、ネズミ"}
     ]
-    
+
 @st.cache_resource(show_spinner=False)
 def load_data():
     with st.spinner(text="Loading and indexing the Streamlit docs – hang tight! This should take 1-2 minutes."):
