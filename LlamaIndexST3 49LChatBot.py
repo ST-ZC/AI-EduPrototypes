@@ -11,9 +11,8 @@ st.set_page_config(page_title="Chat with the Streamlit docs, powered by LlamaInd
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [
         {"role": "assistant", "content": "こんにちは！動物の勝ち負けゲームの専門家です。何か質問があればどうぞ！"},
-        {"role": "assistant", "content": "象、ライオン、虎、豹、狼、犬、猫、ネズミ"}
     ]
-    
+
 @st.cache_resource(show_spinner=False)
 def load_data():
     with st.spinner(text="Loading and indexing the Streamlit docs – hang tight! This should take 1-2 minutes."):
@@ -31,11 +30,10 @@ if "chat_engine" not in st.session_state.keys():
 if prompt := st.chat_input("Your question"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
+# ユーザーからのメッセージとアシスタントからのメッセージを交互に表示
 for message in st.session_state.messages: 
     with st.chat_message(message["role"]):
         st.write(message["content"])
-        
-print("Hello")
 
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
@@ -44,5 +42,3 @@ if st.session_state.messages[-1]["role"] != "assistant":
             st.write(response.response)
             message = {"role": "assistant", "content": response.response}
             st.session_state.messages.append(message) 
-
-print("Hello111")
