@@ -30,11 +30,10 @@ if "chat_engine" not in st.session_state.keys():
 if prompt := st.chat_input("Your question"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
+# ユーザーからのメッセージとアシスタントからのメッセージを交互に表示
 for message in st.session_state.messages: 
     with st.chat_message(message["role"]):
         st.write(message["content"])
-        
-print("Hello")
 
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
@@ -43,5 +42,3 @@ if st.session_state.messages[-1]["role"] != "assistant":
             st.write(response.response)
             message = {"role": "assistant", "content": response.response}
             st.session_state.messages.append(message) 
-
-print("Hello111")
