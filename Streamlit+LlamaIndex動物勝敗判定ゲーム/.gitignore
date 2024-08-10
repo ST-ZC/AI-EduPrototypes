@@ -20,3 +20,4 @@ Thumbs.db
 temp/        # tempディレクトリ全体を無視
 config.ini   # 特定のファイル名を無視
 build/*.o    # buildディレクトリ内の.oで終わるファイルを無視
+venv/        #仮想環境を無視
